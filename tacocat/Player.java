@@ -1,4 +1,3 @@
-
 package tacocat;
 
 import java.awt.Color;
@@ -7,7 +6,7 @@ import java.util.Random;
 
 
 public class Player extends GameObject{
-
+    //Classe player vai ser o gato por enquanto só to testando as possibilidades
     Random r = new Random();
     
     Player(int x, int y){
