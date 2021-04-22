@@ -5,6 +5,7 @@ import java.awt.Canvas;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
+import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -18,9 +19,21 @@ public class Jogo extends Canvas implements Runnable{
     
     private Thread thread;
     private boolean rodando = false;
+    private Ajudante ajudante;
+    
+    private Random r;
     
     public Jogo(){
         Janela j = new Janela(W, H, "TacoCat", this);
+        
+        ajudante = new Ajudante();
+        
+        for(int i = 0; i < 50; i++){
+            r = new Random(); 
+            ajudante.addObjeto(new Player(1, 1));
+        }
+        
+       
     }
     
     
@@ -70,7 +83,7 @@ public class Jogo extends Canvas implements Runnable{
     }
 
     private void tick() {
-        
+        ajudante.tick();
     }
 
     private void render() {
@@ -85,17 +98,9 @@ public class Jogo extends Canvas implements Runnable{
         g.setColor(Color.orange);
         g.fillRect(0, 0, W, H);
         
+        ajudante.render(g);
         
         g.dispose();
         bs.show();
-    }
-    
- 
-    
-    
-   
-
- 
-    
-    
+    }             
 }
