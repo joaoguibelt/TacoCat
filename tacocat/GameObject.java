@@ -1,16 +1,16 @@
-
 package tacocat;
 
 import java.awt.Graphics;
 
-
+//Objetos do jogo
 public abstract class GameObject {
     private int x;
     private int y; 
+    // velx e vely são as velocidades horizontais e verticais respectivamente
     private int velx;
     private int vely;
     
-    
+    // x e y são a posição do objeto na janela
     GameObject(int x, int y){
         this.x = x;
         this.y = y;

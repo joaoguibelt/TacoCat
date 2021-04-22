@@ -1,4 +1,3 @@
-
 package tacocat;
 
 import java.awt.Canvas;
@@ -13,7 +12,7 @@ import java.util.logging.Logger;
 
 public class Jogo extends Canvas implements Runnable{
    
-    
+   //Altura e Largura da janela 
     public static final int W = 490;
     public static final int H = 600;
     
@@ -22,7 +21,7 @@ public class Jogo extends Canvas implements Runnable{
     private Ajudante ajudante;
     
     private Random r;
-    
+    //Construtor
     public Jogo(){
         Janela j = new Janela(W, H, "TacoCat", this);
         
@@ -36,13 +35,13 @@ public class Jogo extends Canvas implements Runnable{
        
     }
     
-    
+    //Começa o jogo
     public synchronized void start(){
         thread = new Thread(this);
         thread.start();
         rodando = true;
     }
-    
+    //Pausa o jogo
      public synchronized void stop(){
         try {
             thread.join();
@@ -52,7 +51,7 @@ public class Jogo extends Canvas implements Runnable{
         }
     }
     
-    
+    //Gameloop
     @Override
     public void run() {
         long lastTime = System.nanoTime();
@@ -81,11 +80,11 @@ public class Jogo extends Canvas implements Runnable{
         }
         stop();
     }
-
+    //O que roda todo frame
     private void tick() {
         ajudante.tick();
     }
-
+    //O que renderiza as imagens
     private void render() {
         BufferStrategy bs = this.getBufferStrategy();
         if(bs == null){
