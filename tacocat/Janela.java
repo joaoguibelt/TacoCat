@@ -1,4 +1,3 @@
-
 package tacocat;
 
 import java.awt.Canvas;
