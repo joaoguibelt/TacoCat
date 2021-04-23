@@ -6,14 +6,17 @@ import java.awt.Graphics;
 public abstract class GameObject {
     private int x;
     private int y; 
+    //Identidade do objeto
+    private ID id;
     // velx e vely são as velocidades horizontais e verticais respectivamente
     private int velx;
     private int vely;
     
     // x e y são a posição do objeto na janela
-    GameObject(int x, int y){
+    GameObject(int x, int y, ID id){
         this.x = x;
         this.y = y;
+        this.id = id;
     }
     
     
@@ -58,5 +61,15 @@ public abstract class GameObject {
  
     public void setVely(int vely) {
         this.vely = vely;
+    }
+
+
+    public ID getId() {
+        return id;
+    }
+
+
+    public void setId(ID id) {
+        this.id = id;
     }
 }

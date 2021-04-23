@@ -2,20 +2,14 @@ package tacocat;
 
 import java.awt.Color;
 import java.awt.Graphics;
-import java.util.Random;
 
 
 public class Player extends GameObject{
     //Classe player vai ser o gato por enquanto só to testando as possibilidades
-    Random r = new Random();
     
     Player(int x, int y){
-        super(x,y);
+        super(x, y, ID.Player);
       
-        this.setVelx(r.nextInt(5) + 1);
-        this.setVely(r.nextInt(5) + 1);
-
-
   
     }
     
@@ -29,7 +23,7 @@ public class Player extends GameObject{
     @Override
     public void render(Graphics g) {
         g.setColor(Color.red);
-        g.fillRect(this.getX(), this.getY(), 32, 32);
+        g.fillRect(this.getX(), this.getY(), 50, 100);
     }
     
 }

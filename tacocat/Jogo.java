@@ -19,19 +19,16 @@ public class Jogo extends Canvas implements Runnable{
     private Thread thread;
     private boolean rodando = false;
     private Ajudante ajudante;
-    
+    private HUD hud;
     private Random r;
     //Construtor
     public Jogo(){
-        Janela j = new Janela(W, H, "TacoCat", this);
-        
         ajudante = new Ajudante();
         
-        for(int i = 0; i < 50; i++){
-            r = new Random(); 
-            ajudante.addObjeto(new Player(1, 1));
-        }
-        
+        this.addKeyListener(new Teclado(ajudante));
+        Janela j = new Janela(W, H, "TacoCat", this);
+        hud = new HUD();
+        ajudante.addObjeto(new Player(0, H - 130));
        
     }
     
@@ -54,6 +51,7 @@ public class Jogo extends Canvas implements Runnable{
     //Gameloop
     @Override
     public void run() {
+        this.requestFocus();
         long lastTime = System.nanoTime();
         double amountOfTicks = 60.0;
         double ns = 1000000000 / amountOfTicks;
@@ -83,6 +81,7 @@ public class Jogo extends Canvas implements Runnable{
     //O que roda todo frame
     private void tick() {
         ajudante.tick();
+        hud.tick();
     }
     //O que renderiza as imagens
     private void render() {
@@ -98,7 +97,7 @@ public class Jogo extends Canvas implements Runnable{
         g.fillRect(0, 0, W, H);
         
         ajudante.render(g);
-        
+        hud.render(g);
         g.dispose();
         bs.show();
     }             
