@@ -29,7 +29,12 @@ public class Jogo extends Canvas implements Runnable{
         Janela j = new Janela(W, H, "TacoCat", this);
         hud = new HUD();
         ajudante.addObjeto(new Player(0, H - 130));
+<<<<<<< HEAD
        
+=======
+        ajudante.addObjeto(new Tacocat(90,100));
+        ajudante.addObjeto(new Purrito(380,100));
+>>>>>>> dario
     }
     
     //Começa o jogo
