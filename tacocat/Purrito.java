@@ -19,5 +19,15 @@ public class Purrito extends Inimigos{
         this.setX(this.getX() + this.getVelx());
         this.setY(this.getY() + this.getVely());
     }
+
+    @Override
+    public void morrer() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void frenesi() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }

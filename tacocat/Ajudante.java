@@ -11,13 +11,8 @@ public class Ajudante {
     public void tick(){
         for(int i = 0; i < objetos.size(); i++){
             GameObject objetoTemporario = objetos.get(i);
-<<<<<<< HEAD
-            
             objetoTemporario.tick();
-=======
-            objetoTemporario.tick();
-            
->>>>>>> dario
+           
         }
     }
     
