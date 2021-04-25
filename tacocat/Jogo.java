@@ -29,12 +29,8 @@ public class Jogo extends Canvas implements Runnable{
         Janela j = new Janela(W, H, "TacoCat", this);
         hud = new HUD();
         ajudante.addObjeto(new Player(0, H - 130));
-<<<<<<< HEAD
-       
-=======
         ajudante.addObjeto(new Tacocat(90,100));
         ajudante.addObjeto(new Purrito(380,100));
->>>>>>> dario
     }
     
     //Começa o jogo
@@ -105,5 +101,16 @@ public class Jogo extends Canvas implements Runnable{
         hud.render(g);
         g.dispose();
         bs.show();
-    }             
+    }  
+    
+    //NÃO ULTRAPASSAR A BORDA DO JOGO
+    public static int limiteResolucao(int var, int min, int max){
+       if(var >= max){
+           return var = max;
+       }else if(var <= min){
+           return var = min;
+       }else{
+           return var;
+       }
+    }
 }

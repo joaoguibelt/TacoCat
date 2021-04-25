@@ -16,13 +16,8 @@ public class Player extends GameObject{
     
     @Override
     public void tick() {
-<<<<<<< HEAD
-        this.setX(this.getX() + this.getVelx());
-        this.setY(this.getY() + this.getVely());
-=======
         this.setX(this.getX());
         this.setY(this.getY());
->>>>>>> dario
     }
 
     @Override
