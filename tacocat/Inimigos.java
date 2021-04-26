@@ -4,8 +4,8 @@ package tacocat;
 public abstract class Inimigos extends GameObject {
     private int vida;
 
-    public Inimigos(int x, int y) {
-        super(x, y, ID.Inimigo);
+    public Inimigos(int x, int y, int velx, int vely, ID id) {
+        super(x, y, id, velx, vely);
     }
 
     public int getVida() {

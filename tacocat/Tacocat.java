@@ -4,11 +4,13 @@ import java.awt.Color;
 import java.awt.Graphics;
 
 public class Tacocat extends Inimigos {
+    private int limiteEsquerda;
+    private int limiteDireita;
     
-    public Tacocat(int x, int y) {
-        super(x, y);
-        this.setVelx(3);
-        this.setVely(-2);
+    public Tacocat(int x, int y, int velx, int vely, int limEsq, int limDir) {
+        super(x, y, velx, vely, ID.Tacocat);
+        this.limiteDireita = limDir;
+        this.limiteEsquerda = limEsq;
     }
    
     @Override
@@ -22,12 +24,13 @@ public class Tacocat extends Inimigos {
         this.setX(this.getX() + this.getVelx());
         this.setY(this.getY() + this.getVely());
         
-        if(this.getX() <= 0 || this.getX() >= (Jogo.W-100)/2){
+        if(this.getX() <= limiteEsquerda || this.getX() >= (limiteDireita)){
             this.setVelx(this.getVelx()*-1);
         }
         if(this.getY() <= 0 || this.getY() >= (Jogo.H)/2){
             this.setVely(this.getVely()*-1);
         }
+        
     }
 
     @Override
