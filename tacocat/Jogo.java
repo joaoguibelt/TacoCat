@@ -24,13 +24,14 @@ public class Jogo extends Canvas implements Runnable{
     //Construtor
     public Jogo(){
         ajudante = new Ajudante();
-        
+        r = new Random();
         this.addKeyListener(new Teclado(ajudante));
         Janela j = new Janela(W, H, "TacoCat", this);
         hud = new HUD();
         ajudante.addObjeto(new Player(0, H - 130));
-        ajudante.addObjeto(new Tacocat(90,100));
-        ajudante.addObjeto(new Purrito(380,100));
+        ajudante.addObjeto(new Tacocat(r.nextInt(230), r.nextInt(Jogo.H/2), -3, 3, 0, 230));
+        ajudante.addObjeto(new Tacocat(r.nextInt(250)+245,r.nextInt(Jogo.H/2), -3, 3, 245, Jogo.W-10));
+        ajudante.addObjeto(new Purrito(r.nextInt(Jogo.W),r.nextInt(Jogo.H/2), -15, 15));
     }
     
     //Começa o jogo

@@ -18,6 +18,14 @@ public abstract class GameObject {
         this.y = y;
         this.id = id;
     }
+    // construtor para os inimigos
+    GameObject(int x, int y, ID id, int velx, int vely){
+        this.x = x;
+        this.y = y;
+        this.velx = velx;
+        this.vely = vely;
+        this.id = id;
+    }
     
     
     public abstract void tick();
