@@ -21,15 +21,20 @@ public class Jogo extends Canvas implements Runnable{
     private Ajudante ajudante;
     private HUD hud;
     private Random r;
+    private CriarInimigos cria;
+    
     //Construtor
     public Jogo(){
         ajudante = new Ajudante();
-        
+        r = new Random();
         this.addKeyListener(new Teclado(ajudante));
         Janela j = new Janela(W, H, "TacoCat", this);
         hud = new HUD();
         ajudante.addObjeto(new Player(0, H - 130));
-       
+        ajudante.addObjeto(new Tacocat(r.nextInt(230), r.nextInt(Jogo.H/2), -3, 3, 0, 230));
+        ajudante.addObjeto(new Tacocat(r.nextInt(250)+245,r.nextInt(Jogo.H/2), -3, 3, 245, Jogo.W-10));
+        ajudante.addObjeto(new Purrito(r.nextInt(Jogo.W),r.nextInt(Jogo.H/2), -15, 15));
+        cria = new CriarInimigos(ajudante,hud);
     }
     
     //Começa o jogo
@@ -82,6 +87,7 @@ public class Jogo extends Canvas implements Runnable{
     private void tick() {
         ajudante.tick();
         hud.tick();
+        cria.tick();
     }
     //O que renderiza as imagens
     private void render() {
@@ -100,5 +106,16 @@ public class Jogo extends Canvas implements Runnable{
         hud.render(g);
         g.dispose();
         bs.show();
-    }             
+    }  
+    
+    //NÃO ULTRAPASSAR A BORDA DO JOGO
+    public static int limiteResolucao(int var, int min, int max){
+       if(var >= max){
+           return var = max;
+       }else if(var <= min){
+           return var = min;
+       }else{
+           return var;
+       }
+    }
 }
