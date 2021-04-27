@@ -31,9 +31,9 @@ public class CriarInimigos {
             pontosTemp1 = 0;
             ajudante.addObjeto(new Purrito(r.nextInt(Jogo.W),r.nextInt(Jogo.H/2), -15, 15));
             
-            //if (hud.getLevel() == 2){
-            //    ajudante.addObjeto(new Purrito(r.nextInt(Jogo.W),r.nextInt(Jogo.H/2), -15, 15));
-            //}
+            if (hud.getLevel() == 2){
+                ajudante.addObjeto(new Purrito(r.nextInt(Jogo.W),r.nextInt(Jogo.H/2), -15, 15));
+            }
         } 
         
         if (pontosTemp2 >= 200){
