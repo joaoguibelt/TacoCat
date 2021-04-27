@@ -28,6 +28,7 @@ public class Jogo extends Canvas implements Runnable{
         ajudante = new Ajudante();
         r = new Random();
         this.addKeyListener(new Teclado(ajudante));
+        this.addMouseListener(new Mouse(ajudante));
         Janela j = new Janela(W, H, "TacoCat", this);
         hud = new HUD();
         ajudante.addObjeto(new Player(0, H - 130));
