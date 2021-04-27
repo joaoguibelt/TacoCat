@@ -2,24 +2,31 @@ package tacocat;
 
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.util.Random;
 
 public class Mouse extends MouseAdapter{
     
     private Ajudante ajudante;
-    private Random r = new Random();
     
     public Mouse(Ajudante ajudante){
         this.ajudante = ajudante;
-        
     }
     
     @Override
     public void mousePressed(MouseEvent e){
-        int mx = e.getX();
-        int my = e.getY();
+        int nx = e.getX();
+        int ny = e.getY();
         
-        ajudante.addObjeto(new Tacocat(r.nextInt(230), r.nextInt(Jogo.H/2), -3, 3, 0, 230));
+        for(int i = 0; i < ajudante.objetos.size(); i++){
+            if(ajudante.objetos.get(i).getId() != ID.Player){
+                if(mouseOver(nx,ny,ajudante.objetos.get(i).getX(),ajudante.objetos.get(i).getY(),ajudante.objetos.get(i).getWidth(),ajudante.objetos.get(i).getHeight())){
+                    System.out.println("hit");
+                    ajudante.objetos.get(i).setVida(ajudante.objetos.get(i).getVida() - 1);
+                    if(ajudante.objetos.get(i).getVida() == 0){
+                        ajudante.objetos.get(i).morrer();
+                    }
+                }
+            }
+        }
 
     }
     
