@@ -1,9 +1,11 @@
 package tacocat;
 
 import java.awt.Graphics;
+import java.awt.Rectangle;
 
 //Objetos do jogo
 public abstract class GameObject {
+    // x e y são a posição do objeto na janela
     private int x;
     private int y; 
     //Identidade do objeto
@@ -11,26 +13,31 @@ public abstract class GameObject {
     // velx e vely são as velocidades horizontais e verticais respectivamente
     private int velx;
     private int vely;
-    
-    // x e y são a posição do objeto na janela
+    // tamanho das hit boxes
+    private int width;
+    private int height;
+    //vida dos inimigos
+    private int vida;
     GameObject(int x, int y, ID id){
         this.x = x;
         this.y = y;
         this.id = id;
     }
     // construtor para os inimigos
-    GameObject(int x, int y, ID id, int velx, int vely){
+    GameObject(int x, int y, ID id, int velx, int vely, int width, int height, int vida){
         this.x = x;
         this.y = y;
         this.velx = velx;
         this.vely = vely;
         this.id = id;
+        this.width = width;
+        this.height = height;
     }
     
     
     public abstract void tick();
     public abstract void render(Graphics g);
-
+    //public abstract Rectangle hitBox();
    
     public int getX() {
         return x;
@@ -80,4 +87,31 @@ public abstract class GameObject {
     public void setId(ID id) {
         this.id = id;
     }
+
+    public int getWidth() {
+        return width;
+    }
+
+    public void setWidth(int width) {
+        this.width = width;
+    }
+
+    public int getHeight() {
+        return height;
+    }
+
+    public void setHeight(int height) {
+        this.height = height;
+    }
+    public int getVida() {
+        return vida;
+    }
+
+    public void setVida(int vida) {
+        this.vida = vida;
+    }
+    
+    public abstract void morrer();
+    public abstract void frenesi();
+    
 }

@@ -25,5 +25,11 @@ public class Player extends GameObject{
         g.setColor(Color.red);
         g.fillRect(this.getX(), this.getY(), 50, 100);
     }
+
+    @Override
+    public void morrer() {    }
+
+    @Override
+    public void frenesi() {    }
     
 }
