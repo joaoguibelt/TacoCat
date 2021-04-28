@@ -32,9 +32,9 @@ public class Jogo extends Canvas implements Runnable{
         Janela j = new Janela(W, H, "TacoCat", this);
         hud = new HUD();
         ajudante.addObjeto(new Player(0, H - 130));
-        ajudante.addObjeto(new Tacocat(r.nextInt(230), r.nextInt(Jogo.H/2), -3, 3, 0, 230, 20, 20));
-        ajudante.addObjeto(new Tacocat(r.nextInt(250)+245,r.nextInt(Jogo.H/2), -3, 3, 245, Jogo.W-10, 20, 20));
-        ajudante.addObjeto(new Purrito(r.nextInt(Jogo.W),r.nextInt(Jogo.H/2), -15, 15,50,50));
+        //ajudante.addObjeto(new Tacocat(r.nextInt(230), r.nextInt(Jogo.H/2), -3, 3, 0, 230, 20, 20));
+        //ajudante.addObjeto(new Tacocat(r.nextInt(250)+245,r.nextInt(Jogo.H/2), -3, 3, 245, Jogo.W-10, 20, 20));
+        //ajudante.addObjeto(new Purrito(r.nextInt(Jogo.W),r.nextInt(Jogo.H/2), -15, 15,50,50));
         cria = new CriarInimigos(ajudante,hud);
     }
     
