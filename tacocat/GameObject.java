@@ -1,7 +1,6 @@
 package tacocat;
 
 import java.awt.Graphics;
-import java.awt.Rectangle;
 
 //Objetos do jogo
 public abstract class GameObject {
@@ -32,13 +31,13 @@ public abstract class GameObject {
         this.id = id;
         this.width = width;
         this.height = height;
+        this.vida = vida;
     }
     
     
     public abstract void tick();
     public abstract void render(Graphics g);
-    //public abstract Rectangle hitBox();
-   
+    
     public int getX() {
         return x;
     }

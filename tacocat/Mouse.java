@@ -19,10 +19,13 @@ public class Mouse extends MouseAdapter{
         for(int i = 0; i < ajudante.objetos.size(); i++){
             if(ajudante.objetos.get(i).getId() != ID.Player){
                 if(mouseOver(nx,ny,ajudante.objetos.get(i).getX(),ajudante.objetos.get(i).getY(),ajudante.objetos.get(i).getWidth(),ajudante.objetos.get(i).getHeight())){
-                    System.out.println("hit");
+                  //  System.out.println("hit");
+                   // ajudante.removerObjeto(ajudante.objetos.get(i));
+                    //i--;
                     ajudante.objetos.get(i).setVida(ajudante.objetos.get(i).getVida() - 1);
                     if(ajudante.objetos.get(i).getVida() == 0){
-                        ajudante.objetos.get(i).morrer();
+                        ajudante.removerObjeto(ajudante.objetos.get(i));
+                        i--;
                     }
                 }
             }
