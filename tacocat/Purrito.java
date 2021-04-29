@@ -3,10 +3,10 @@ package tacocat;
 import java.awt.Color;
 import java.awt.Graphics;
 
-public class Purrito extends Inimigos{
+public class Purrito extends GameObject{
     
-    public Purrito(int x, int y, int velx, int vely) {
-        super(x, y, velx, vely, ID.Purrito);
+    public Purrito(int x, int y, int velx, int vely, int width, int height) {
+        super(x, y,ID.Purrito, velx, vely,  width, height, 3);
     }
     @Override
     public void render(Graphics g) {
