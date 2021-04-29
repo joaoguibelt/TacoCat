@@ -21,11 +21,11 @@ public class Player extends GameObject{
         super(x, y, ID.Player);
       
         
-        try {
-            this.imageParado = ImageIO.read(getClass().getResource("/tacocat/Sprites/tacocat_gato_parado.png"));
-        } catch (IOException ex) {
-            Logger.getLogger(Player.class.getName()).log(Level.SEVERE, null, ex);
-        }
+//        try {
+//            this.imageParado = ImageIO.read(getClass().getResource("/tacocat/Sprites/tacocat_gato_parado.png"));
+//        } catch (IOException ex) {
+//            Logger.getLogger(Player.class.getName()).log(Level.SEVERE, null, ex);
+//        }
        // try {
           //  this.imageBatendo = ImageIO.read(new File("tacocat gato batendo.png"));
        // } catch (IOException ex) {
@@ -43,10 +43,10 @@ public class Player extends GameObject{
     @Override
     public void render(Graphics g) {
         
-        g.drawImage(imageParado, this.getX(), this.getY(), null);
+      //  g.drawImage(imageParado, this.getX(), this.getY(), null);
         
-        //g.setColor(Color.red);
-       // g.fillRect(this.getX(), this.getY(), 50, 100);
+        g.setColor(Color.red);
+        g.fillRect(this.getX(), this.getY(), 50, 100);
     }
 
     @Override
