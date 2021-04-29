@@ -16,7 +16,7 @@ public class Tacocat extends GameObject {
     @Override
     public void render(Graphics g) {
         g.setColor(Color.CYAN);
-        g.fillRect(this.getX(), this.getY(), 20, 20);
+        g.fillRect(this.getX(), this.getY(), 30, 30);
     }
     
     @Override
