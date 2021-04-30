@@ -21,17 +21,27 @@ public class Jogo extends Canvas implements Runnable{
     private Ajudante ajudante;
     private HUD hud;
     private Random r;
+    private CriarInimigos cria;
+    private Menu menu;
+    //Janelas do jogo
+    public enum ESTADO{
+        Jogo,
+        Help,
+        Menu
+    };
+    
+    public ESTADO estadoJogo = ESTADO.Menu;
+    
     //Construtor
     public Jogo(){
         ajudante = new Ajudante();
         r = new Random();
         this.addKeyListener(new Teclado(ajudante));
+        this.addMouseListener(new Mouse(ajudante, this));
         Janela j = new Janela(W, H, "TacoCat", this);
         hud = new HUD();
-        ajudante.addObjeto(new Player(0, H - 130));
-        ajudante.addObjeto(new Tacocat(r.nextInt(230), r.nextInt(Jogo.H/2), -3, 3, 0, 230));
-        ajudante.addObjeto(new Tacocat(r.nextInt(250)+245,r.nextInt(Jogo.H/2), -3, 3, 245, Jogo.W-10));
-        ajudante.addObjeto(new Purrito(r.nextInt(Jogo.W),r.nextInt(Jogo.H/2), -15, 15));
+        cria = new CriarInimigos(ajudante,hud);
+        menu = new Menu(this);
     }
     
     //Começa o jogo
@@ -83,7 +93,13 @@ public class Jogo extends Canvas implements Runnable{
     //O que roda todo frame
     private void tick() {
         ajudante.tick();
-        hud.tick();
+        if(estadoJogo == ESTADO.Jogo){
+            hud.tick();
+            cria.tick();
+        }
+        else if(estadoJogo == ESTADO.Menu){
+            menu.tick();
+        }
     }
     //O que renderiza as imagens
     private void render() {
@@ -99,7 +115,14 @@ public class Jogo extends Canvas implements Runnable{
         g.fillRect(0, 0, W, H);
         
         ajudante.render(g);
-        hud.render(g);
+        
+        if(estadoJogo == ESTADO.Jogo){
+            hud.render(g);
+        }
+        else if(estadoJogo == ESTADO.Menu || estadoJogo == ESTADO.Help){
+            menu.render(g);
+        }
+        
         g.dispose();
         bs.show();
     }  

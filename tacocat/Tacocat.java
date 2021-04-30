@@ -3,12 +3,12 @@ package tacocat;
 import java.awt.Color;
 import java.awt.Graphics;
 
-public class Tacocat extends Inimigos {
+public class Tacocat extends GameObject {
     private int limiteEsquerda;
     private int limiteDireita;
     
-    public Tacocat(int x, int y, int velx, int vely, int limEsq, int limDir) {
-        super(x, y, velx, vely, ID.Tacocat);
+    public Tacocat(int x, int y, int velx, int vely, int limEsq, int limDir, int width, int height, boolean direita) {
+        super(x, y, ID.Tacocat, velx, vely, width, height, 1, direita);
         this.limiteDireita = limDir;
         this.limiteEsquerda = limEsq;
     }
@@ -16,7 +16,7 @@ public class Tacocat extends Inimigos {
     @Override
     public void render(Graphics g) {
         g.setColor(Color.CYAN);
-        g.fillRect(this.getX(), this.getY(), 20, 20);
+        g.fillRect(this.getX(), this.getY(), 30, 30);
     }
     
     @Override
