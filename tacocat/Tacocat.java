@@ -13,19 +13,23 @@ public class Tacocat extends GameObject {
     private int limiteEsquerda;
     private int limiteDireita;
     BufferedImage tacocat;
+
     Color c = new Color(0.5f, 0.1f, 1f,.5f);
+
     
     public Tacocat(int x, int y, int velx, int vely, int limEsq, int limDir, int width, int height, boolean direita) {
         super(x, y, ID.Tacocat, velx, vely, width, height, 1, direita);
         this.limiteDireita = limDir;
         this.limiteEsquerda = limEsq;
         
+
         
         
         File file = new File("");
         
         try {
             this.tacocat = ImageIO.read(new File(file.getAbsoluteFile()+"\\src\\main\\java\\tacocat\\Sprites\\tacocat.png"));
+
         } catch (IOException ex) {
             Logger.getLogger(Player.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -34,9 +38,11 @@ public class Tacocat extends GameObject {
     
     @Override
     public void render(Graphics g) {
+
         g.drawImage(tacocat, this.getX()-17, this.getY()-15, null);
         g.setColor(c);
         
+
         g.fillRect(this.getX(), this.getY(), 30, 30);
         
     }

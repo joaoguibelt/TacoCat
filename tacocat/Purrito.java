@@ -11,14 +11,17 @@ import javax.imageio.ImageIO;
 
 public class Purrito extends GameObject{
     BufferedImage purrito;
+
     Color c=new Color(1f,0f,0f,.5f );
     
+
     public Purrito(int x, int y, int velx, int vely, int width, int height, boolean direita) {
         super(x, y,ID.Purrito, velx, vely,  width, height, 3, direita);
         
         File file = new File("");
         
         try {
+
             this.purrito = ImageIO.read(new File(file.getAbsoluteFile()+"\\src\\main\\java\\tacocat\\Sprites\\purrito.png"));
         } catch (IOException ex) {
             Logger.getLogger(Player.class.getName()).log(Level.SEVERE, null, ex);
@@ -27,8 +30,10 @@ public class Purrito extends GameObject{
     }
     @Override
     public void render(Graphics g) {
+
         g.drawImage(purrito, this.getX()-5, this.getY()-5, null);
         g.setColor(c);
+
         g.fillRect(this.getX(), this.getY(), 50, 50);
         
     }
