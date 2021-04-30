@@ -19,15 +19,25 @@ public class Mouse extends MouseAdapter{
     public void mousePressed(MouseEvent e){
         int nx = e.getX();
         int ny = e.getY();
+        GameObject objetoTemporario = null;
         //Mouse dentro do jogo
         if(jogo.estadoJogo == ESTADO.Jogo){
+            //pegando o player
+            for(int i = 0; i < ajudante.objetos.size(); i++){
+                if(ajudante.objetos.get(i).getId() == ID.Player){
+                    objetoTemporario = ajudante.objetos.get(i);
+                }
+            }
+            //batendo nos inimigos
             for(int i = 0; i < ajudante.objetos.size(); i++){
                 if(ajudante.objetos.get(i).getId() != ID.Player){
                     if(mouseOver(nx,ny,ajudante.objetos.get(i).getX(),ajudante.objetos.get(i).getY(),ajudante.objetos.get(i).getWidth(),ajudante.objetos.get(i).getHeight())){
-                        ajudante.objetos.get(i).setVida(ajudante.objetos.get(i).getVida() - 1);
-                        if(ajudante.objetos.get(i).getVida() == 0){
-                            ajudante.removerObjeto(ajudante.objetos.get(i));
-                            i--;
+                        if(ajudante.objetos.get(i).isDireita() == objetoTemporario.isDireita()){
+                                ajudante.objetos.get(i).setVida(ajudante.objetos.get(i).getVida() - 1);
+                            if(ajudante.objetos.get(i).getVida() == 0){
+                                ajudante.removerObjeto(ajudante.objetos.get(i));
+                                i--;
+                            }
                         }
                     }
                 }

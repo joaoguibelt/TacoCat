@@ -17,13 +17,16 @@ public abstract class GameObject {
     private int height;
     //vida dos inimigos
     private int vida;
+    //lado que os objetos se encontram no jogo
+    private boolean direita;
     GameObject(int x, int y, ID id){
         this.x = x;
         this.y = y;
         this.id = id;
+        this.direita = false;
     }
     // construtor para os inimigos
-    GameObject(int x, int y, ID id, int velx, int vely, int width, int height, int vida){
+    GameObject(int x, int y, ID id, int velx, int vely, int width, int height, int vida, boolean direita){
         this.x = x;
         this.y = y;
         this.velx = velx;
@@ -32,6 +35,7 @@ public abstract class GameObject {
         this.width = width;
         this.height = height;
         this.vida = vida;
+        this.direita = direita;
     }
     
     
@@ -112,5 +116,15 @@ public abstract class GameObject {
     
     public abstract void morrer();
     public abstract void frenesi();
+
+
+    public boolean isDireita() {
+        return direita;
+    }
+
+ 
+    public void setDireita(boolean direita) {
+        this.direita = direita;
+    }
     
 }

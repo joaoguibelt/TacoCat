@@ -20,17 +20,17 @@ public class CriarInimigos {
         
         if (pontosTemp1 >= 2000){
             pontosTemp1 = 0;
-            ajudante.addObjeto(new Purrito(r.nextInt(Jogo.W),r.nextInt(Jogo.H/2), -15, 15, 50, 50));
+            ajudante.addObjeto(new Purrito(r.nextInt(230),r.nextInt(Jogo.H/2), -15, 15, 50, 50, false));
             
             if (hud.getLevel() == 2){
-                ajudante.addObjeto(new Purrito(r.nextInt(Jogo.W),r.nextInt(Jogo.H/2), -15, 15, 50, 50));
+                ajudante.addObjeto(new Purrito(r.nextInt(250) + 245,r.nextInt(Jogo.H/2), -15, 15, 50, 50, true));
             }
         } 
         
         if (pontosTemp2 >= 1000){
             hud.setLevel(hud.getLevel() + 1);
-            ajudante.addObjeto(new Tacocat(r.nextInt(230), r.nextInt(Jogo.H/2), -3, 3, 0, 230, 20, 20));
-            ajudante.addObjeto(new Tacocat(r.nextInt(250)+245,r.nextInt(Jogo.H/2), -3, 3, 245, Jogo.W-10, 20, 20));    
+            ajudante.addObjeto(new Tacocat(r.nextInt(230), r.nextInt(Jogo.H/2), -3, 3, 0, 230, 20, 20, false));
+            ajudante.addObjeto(new Tacocat(r.nextInt(250)+245,r.nextInt(Jogo.H/2), -3, 3, 245, Jogo.W-10, 20, 20, true));    
             hud.setLevel(hud.getLevel() + 1);
             pontosTemp2 = 0;   
             }    
