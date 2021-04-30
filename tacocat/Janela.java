@@ -10,11 +10,13 @@ public class Janela extends Canvas{
         JFrame frame = new JFrame(nome);
         
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        
+        frame.setSize(width, height);   
+        frame.setResizable(false);
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
-        frame.setSize(width, height);        
         frame.add(jogo);
-        frame.setResizable(false);
+        
         jogo.start();
     }
 }
