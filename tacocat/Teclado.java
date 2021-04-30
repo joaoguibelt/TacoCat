@@ -22,9 +22,11 @@ public class Teclado extends KeyAdapter{
             if(objetoTemporario.getId() == ID.Player){
                 if(key == KeyEvent.VK_D){
                     objetoTemporario.setX(480 - 50);
+                    ajudante.objetos.get(i).setDireita(true);
                 }
                 else if(key == KeyEvent.VK_A){
                     objetoTemporario.setX(0);
+                    ajudante.objetos.get(i).setDireita(false);
                 }
             }
         }
