@@ -2,16 +2,31 @@ package tacocat;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.imageio.ImageIO;
 
 public class Purrito extends GameObject{
-    
+    BufferedImage purrito;
     public Purrito(int x, int y, int velx, int vely, int width, int height, boolean direita) {
         super(x, y,ID.Purrito, velx, vely,  width, height, 3, direita);
+        
+        File file = new File("");
+        
+        try {
+            this.purrito = ImageIO.read(new File(file.getAbsoluteFile()+"\\src\\tacocat\\Sprites\\purrito.png"));
+        } catch (IOException ex) {
+            Logger.getLogger(Player.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     @Override
     public void render(Graphics g) {
-        g.setColor(Color.MAGENTA);
+        g.drawImage(purrito, this.getX(), this.getY(), null);
         g.fillRect(this.getX(), this.getY(), 50, 50);
+        
     }
 
     @Override
