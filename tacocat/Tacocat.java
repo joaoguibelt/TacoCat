@@ -7,8 +7,8 @@ public class Tacocat extends GameObject {
     private int limiteEsquerda;
     private int limiteDireita;
     
-    public Tacocat(int x, int y, int velx, int vely, int limEsq, int limDir, int width, int height) {
-        super(x, y, ID.Tacocat, velx, vely, width, height, 1);
+    public Tacocat(int x, int y, int velx, int vely, int limEsq, int limDir, int width, int height, boolean direita) {
+        super(x, y, ID.Tacocat, velx, vely, width, height, 1, direita);
         this.limiteDireita = limDir;
         this.limiteEsquerda = limEsq;
     }

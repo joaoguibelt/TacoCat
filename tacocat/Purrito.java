@@ -5,8 +5,8 @@ import java.awt.Graphics;
 
 public class Purrito extends GameObject{
     
-    public Purrito(int x, int y, int velx, int vely, int width, int height) {
-        super(x, y,ID.Purrito, velx, vely,  width, height, 3);
+    public Purrito(int x, int y, int velx, int vely, int width, int height, boolean direita) {
+        super(x, y,ID.Purrito, velx, vely,  width, height, 3, direita);
     }
     @Override
     public void render(Graphics g) {
@@ -23,6 +23,13 @@ public class Purrito extends GameObject{
         }
         if(this.getY() <= 0 || this.getY() >= (Jogo.H)/2){
             this.setVely(this.getVely()*-1);
+        }
+        //saber o lado que o inimigo está
+        if(this.getX() > 230){
+            this.setDireita(true);
+        }
+        else{
+            this.setDireita(false);
         }
     }
 
