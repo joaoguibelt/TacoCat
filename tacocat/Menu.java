@@ -9,9 +9,11 @@ import tacocat.Jogo.ESTADO;
 public class Menu {
     
     private Jogo jogo;
+    private Ajudante ajudante;
     
-    public Menu(Jogo jogo){
+    public Menu(Jogo jogo, Ajudante ajudante){
         this.jogo = jogo;
+        this.ajudante = ajudante;
     }
     
     
@@ -27,7 +29,9 @@ public class Menu {
         Font fnt4 = new Font("Segoe UI Black", 1, 40);
         Font fnt5 = new Font("Segoe UI Black", 2, 55);
         Font fnt6 = new Font("Segoe UI Black", 2, 15);
-        
+
+        //Imagens do menu
+
         if(jogo.estadoJogo == ESTADO.Menu){
             g.setFont(fnt5);
             g.setColor(Color.black);
@@ -56,6 +60,7 @@ public class Menu {
             
             
         }
+        //Imagens no help
         else if(jogo.estadoJogo == ESTADO.Help){            
             g.setFont(fnt2);
             g.setColor(Color.black);
@@ -75,6 +80,22 @@ public class Menu {
             g.drawString("mesmo sumirá e causará dano a sua vida ", 10,270);
             g.setFont(fnt4);
             g.drawString("BOM JOGO!", 117,400);
+        }
+        //Imagens do gameover e limpar a string de objetos
+        else if(jogo.estadoJogo == ESTADO.GameOver){           
+            for(int i = 0; i < ajudante.objetos.size(); i++){
+                ajudante.removerObjeto(ajudante.objetos.get(i));
+                i--;
+            }
+            
+            g.setFont(fnt2);
+            g.setColor(Color.black);
+            g.drawString("Voltar", 180, 495);
+            g.drawRect(115, 450, 250, 64);
+            
+            
+            g.setFont(fnt);
+            g.drawString("Game Over", 105, 90);
         }
     }
 }

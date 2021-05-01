@@ -68,7 +68,12 @@ public class Mouse extends MouseAdapter{
             if(mouseOver(nx, ny, 115, 450, 250, 64)){
                 jogo.estadoJogo = ESTADO.Menu;
             }
-        }            
+        }
+        else if(jogo.estadoJogo == ESTADO.GameOver){
+            if(mouseOver(nx, ny, 115, 450, 250, 64)){
+                jogo.estadoJogo = ESTADO.Menu;
+            }
+        }
     }
     
     @Override
