@@ -20,7 +20,18 @@ public class HUD {
     
     private int pontuacao = 0;
     private int level = 0;
+    private boolean contFrenesi = false;
+
+    public boolean getContFrenesi() {
+        return contFrenesi;
+    }
+
+    public void setContFrenesi(boolean contFrenesi) {
+        this.contFrenesi = contFrenesi;
+    }
+
     
+
     public int getPontuacao() {
         return pontuacao;
     }
@@ -58,19 +69,54 @@ public class HUD {
         g.fillRect(170, 550, hp, 16);
         g.setColor(Color.white);
         g.drawRect(170, 550, 150, 16);
+
         
+        Font fonteHud = new Font("Segoe UI Black", 5, 15);
         g.setColor(Color.black);
-        g.drawString("Pontução: "+ pontuacao, 200, 20);
-        g.drawString("Level: "+ level, 215, 40);
+        g.setFont(fonteHud);
+        g.drawString("Pontução: "+ pontuacao, 188, 20);
+        g.drawString("Level: "+ level, 210, 40);
         
-        if((level == 6) || (level == 11)){
-            g.setColor(Color.RED);
-            Font speedup = new Font("arial", 1, 15);
-            g.setFont(speedup);
-            g.setColor(Color.MAGENTA);
-            g.drawString("Speed up!!", 200, 100);
+        Font dificuldade = new Font("Segoe UI Black", 5, 18);
+        g.setFont(dificuldade);
+        g.setColor(Color.MAGENTA);
+        
+        if((level >= 0) && (level < 5)){ 
+            g.drawString("+ Easy +", 200, 65);
+        }
+        else if((level >= 5) && (level < 10)){
+            g.drawString("++ Medium ++", 170, 65);  
+        }
+        else if((level >= 10) && (level < 15)){
+            g.drawString("+++ Hard +++", 175, 65);
+        }
+        else if((level >= 15) && (level < 20)){
+            g.drawString("++++ Severe ++++", 160, 65);
+        }
+        else if(level >= 20){
+            g.drawString("+++++ Impossible +++++", 130, 65);
+        }      
+        
+        
+        
+        if(contFrenesi == true){
+            
+            g.setColor(Color.BLUE);
+            Font modoFrenesi = new Font("Segoe UI Black",5, 20);
+            g.setFont(modoFrenesi);
+            g.drawString("Modo frenesi!", 170, 120);
         }
         
+    }
+
+
+    public static int getHp() {
+        return hp;
+    }
+
+
+    public static void setHp(int aHp) {
+        hp = aHp;
     }
 
 

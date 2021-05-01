@@ -30,6 +30,8 @@ public class Tacocat extends GameObject {
         try {
 
 
+
+           
             this.tacocat = ImageIO.read(new File(file.getAbsoluteFile()+"\\src\\tacocat\\Sprites\\tacocat.png"));
           
         } catch (IOException ex) {
@@ -62,8 +64,16 @@ public class Tacocat extends GameObject {
 
     @Override
     public void frenesi() {
+       this.setX(this.getX() + this.getVelx());
+        this.setY(this.getY() + this.getVely());
         
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        if(this.getX() <= limiteEsquerda || this.getX() >= (limiteDireita)){
+            this.setVelx(this.getVelx()*-1);
+        }
+        if(this.getY() <= 0 || this.getY() >= (Jogo.H)/2){
+            this.setVely(this.getVely()*-1);
+        }
     }
+    
 
 }
