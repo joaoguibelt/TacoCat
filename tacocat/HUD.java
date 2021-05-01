@@ -60,7 +60,7 @@ public class HUD {
         g.fillRect(170, 550, hp, 16);
         g.setColor(Color.white);
         g.drawRect(170, 550, 150, 16);
-        
+
         
         Font fonteHud = new Font("Segoe UI Black", 5, 15);
         g.setColor(Color.black);
@@ -98,6 +98,16 @@ public class HUD {
             g.drawString("Modo frenesi!", 170, 120);
         }
         
+    }
+
+
+    public static int getHp() {
+        return hp;
+    }
+
+
+    public static void setHp(int aHp) {
+        hp = aHp;
     }
 
 

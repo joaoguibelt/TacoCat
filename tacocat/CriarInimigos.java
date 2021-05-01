@@ -63,8 +63,10 @@ public class CriarInimigos {
         if ((hud.getLevel()>= 5) && (hud.getLevel()<10)){
 
             if (pontosTemp1 >= 500){
+
                 pontosTemp1 = 0;
                 ajudante.addObjeto(new Purrito(r.nextInt(195) + 250,r.nextInt(Jogo.H/2), -3, 3, 50, 50, true));
+
             } 
 
             if (pontosTemp2 >= 200){
@@ -77,7 +79,9 @@ public class CriarInimigos {
         }
         
         //Dificuldade 3
+
         if ((hud.getLevel()>= 10) && (hud.getLevel()<15)){
+
             
             if (pontosTemp1 >= 500){
                 pontosTemp1 = 0;

@@ -17,7 +17,8 @@ public class Purrito extends GameObject{
         
         File file = new File("");
         try {
-            this.purrito = ImageIO.read(new File(file.getAbsoluteFile()+"\\src\\main\\java\\tacocat\\Sprites\\purrito.png"));
+
+            this.purrito = ImageIO.read(new File(file.getAbsoluteFile()+"\\src\\tacocat\\Sprites\\purrito.png"));
 
 
         } catch (IOException ex) {
