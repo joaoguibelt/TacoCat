@@ -19,6 +19,8 @@ public abstract class GameObject {
     private int vida;
     //lado que os objetos se encontram no jogo
     private boolean direita;
+    //timer para os inimigos morrerem 
+    private int timer;
     GameObject(int x, int y, ID id){
         this.x = x;
         this.y = y;
@@ -36,6 +38,7 @@ public abstract class GameObject {
         this.height = height;
         this.vida = vida;
         this.direita = direita;
+        this.timer = 0;
     }
     
     
@@ -114,7 +117,6 @@ public abstract class GameObject {
         this.vida = vida;
     }
     
-    public abstract void morrer();
     public abstract void frenesi();
 
 
@@ -125,6 +127,16 @@ public abstract class GameObject {
  
     public void setDireita(boolean direita) {
         this.direita = direita;
+    }
+
+
+    public int getTimer() {
+        return timer;
+    }
+
+
+    public void setTimer(int timer) {
+        this.timer = timer;
     }
     
 }

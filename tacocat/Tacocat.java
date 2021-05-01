@@ -29,6 +29,7 @@ public class Tacocat extends GameObject {
         
         try {
 
+
             this.tacocat = ImageIO.read(new File(file.getAbsoluteFile()+"\\src\\tacocat\\Sprites\\tacocat.png"));
           
         } catch (IOException ex) {
@@ -58,10 +59,6 @@ public class Tacocat extends GameObject {
         
     }
 
-    @Override
-    public void morrer() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 
     @Override
     public void frenesi() {
