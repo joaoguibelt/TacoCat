@@ -15,8 +15,11 @@ public class Purrito extends GameObject{
         super(x, y,ID.Purrito, velx, vely,  width, height, 3, direita);
         
         File file = new File("");
-        
         try {
+<<<<<<< Updated upstream
+=======
+                  
+>>>>>>> Stashed changes
             this.purrito = ImageIO.read(new File(file.getAbsoluteFile()+"\\src\\tacocat\\Sprites\\purrito.png"));
         } catch (IOException ex) {
             Logger.getLogger(Player.class.getName()).log(Level.SEVERE, null, ex);
@@ -24,8 +27,14 @@ public class Purrito extends GameObject{
     }
     @Override
     public void render(Graphics g) {
+<<<<<<< Updated upstream
         g.drawImage(purrito, this.getX(), this.getY(), null);
         g.fillRect(this.getX(), this.getY(), 50, 50);
+=======
+
+        g.drawImage(purrito, this.getX()-5, this.getY()-5, null);
+
+>>>>>>> Stashed changes
         
     }
 
@@ -33,7 +42,7 @@ public class Purrito extends GameObject{
     public void tick() {
         this.setX(this.getX() + this.getVelx());
         this.setY(this.getY() + this.getVely());
-        if(this.getX() <= 0 || this.getX() >= (Jogo.W-30)){
+        if(this.getX() <= 0 || this.getX() >= (Jogo.W-50)){
             this.setVelx(this.getVelx()*-1);
         }
         if(this.getY() <= 0 || this.getY() >= (Jogo.H)/2){

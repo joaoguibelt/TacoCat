@@ -23,6 +23,10 @@ public class Tacocat extends GameObject {
         
         try {
             this.tacocat = ImageIO.read(new File(file.getAbsoluteFile()+"\\src\\tacocat\\Sprites\\tacocat.png"));
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
         } catch (IOException ex) {
             Logger.getLogger(Player.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -30,8 +34,15 @@ public class Tacocat extends GameObject {
    
     @Override
     public void render(Graphics g) {
+<<<<<<< Updated upstream
         g.drawImage(tacocat, this.getX(), this.getY(), null);
         g.fillRect(this.getX(), this.getY(), 30, 30);
+=======
+        g.drawImage(tacocat, this.getX()-17, this.getY()-15, null);
+        
+        
+
+>>>>>>> Stashed changes
         
     }
     
