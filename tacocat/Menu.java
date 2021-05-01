@@ -55,7 +55,7 @@ public class Menu {
             g.drawRect(115, 450, 250, 64);
             
             g.setFont(fnt6);
-            g.drawString("Developed by Tacool", 330, 568);
+            g.drawString("Developed by Tacool", 320, 560);
             g.setColor(Color.black);
             
             
