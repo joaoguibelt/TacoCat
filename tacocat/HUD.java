@@ -7,7 +7,7 @@ import java.awt.Font;
 //HUD do jogo
 public class HUD {
     
-    public static int hp = 150;
+    private static int hp = 150;
     
     private int pontuacao = 0;
     private int level = 0;
@@ -33,6 +33,10 @@ public class HUD {
     
     public void tick(){
          pontuacao ++;
+         
+         if(hp <= 0){
+             System.exit(1);
+         }
     }
 
 
@@ -41,7 +45,7 @@ public class HUD {
         g.setColor(Color.gray);
         g.fillRect(0, 0, 16, 150);
         g.setColor(Color.green);
-        g.fillRect(0, 0, 16, hp);
+        g.fillRect(0, 0, 16, getHp());
         g.setColor(Color.white);
         g.drawRect(0, 0, 16, 150);
         
@@ -57,6 +61,16 @@ public class HUD {
             g.drawString("Speed up!!", 200, 100);
         }
         
+    }
+
+
+    public static int getHp() {
+        return hp;
+    }
+
+
+    public static void setHp(int aHp) {
+        hp = aHp;
     }
     
     

@@ -23,6 +23,7 @@ public class Jogo extends Canvas implements Runnable{
     private Random r;
     private CriarInimigos cria;
     private Menu menu;
+    private ExplosaoDosInimigos explosao;
     //Janelas do jogo
     public enum ESTADO{
         Jogo,
@@ -35,13 +36,15 @@ public class Jogo extends Canvas implements Runnable{
     //Construtor
     public Jogo(){
         ajudante = new Ajudante();
+        menu = new Menu(this);
         r = new Random();
         this.addKeyListener(new Teclado(ajudante));
         this.addMouseListener(new Mouse(ajudante, this));
         Janela j = new Janela(W, H, "TacoCat", this);
         hud = new HUD();
         cria = new CriarInimigos(ajudante,hud);
-        menu = new Menu(this);
+        explosao = new ExplosaoDosInimigos(ajudante, hud);
+        
     }
     
     //Começa o jogo
@@ -96,6 +99,7 @@ public class Jogo extends Canvas implements Runnable{
         if(estadoJogo == ESTADO.Jogo){
             hud.tick();
             cria.tick();
+            explosao.tick();
         }
         else if(estadoJogo == ESTADO.Menu){
             menu.tick();

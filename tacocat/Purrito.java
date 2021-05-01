@@ -22,7 +22,7 @@ public class Purrito extends GameObject{
         
         try {
 
-            this.purrito = ImageIO.read(new File(file.getAbsoluteFile()+"\\src\\main\\java\\tacocat\\Sprites\\purrito.png"));
+            this.purrito = ImageIO.read(new File(file.getAbsoluteFile()+"\\src\\tacocat\\Sprites\\purrito.png"));
         } catch (IOException ex) {
             Logger.getLogger(Player.class.getName()).log(Level.SEVERE, null, ex);
         
@@ -57,10 +57,6 @@ public class Purrito extends GameObject{
         }
     }
 
-    @Override
-    public void morrer() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 
     @Override
     public void frenesi() {
