@@ -1,6 +1,5 @@
 package tacocat;
 
-import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -11,8 +10,6 @@ import javax.imageio.ImageIO;
 
 public class Purrito extends GameObject{
     BufferedImage purrito;
-
-    Color c=new Color(1f,0f,0f,.5f );
     
 
     public Purrito(int x, int y, int velx, int vely, int width, int height, boolean direita) {
@@ -20,6 +17,7 @@ public class Purrito extends GameObject{
         
         File file = new File("");
         try {
+
             this.purrito = ImageIO.read(new File(file.getAbsoluteFile()+"\\src\\tacocat\\Sprites\\purrito.png"));
 
 
@@ -57,7 +55,21 @@ public class Purrito extends GameObject{
 
     @Override
     public void frenesi() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+       this.setX(this.getX() + this.getVelx());
+        this.setY(this.getY() + this.getVely());
+        if(this.getX() <= 0 || this.getX() >= (Jogo.W-50)){
+            this.setVelx(this.getVelx()*-1);
+        }
+        if(this.getY() <= 0 || this.getY() >= (Jogo.H)/2){
+            this.setVely(this.getVely()*-1);
+        }
+        //saber o lado que o inimigo está
+        if(this.getX() > 230){
+            this.setDireita(true);
+        }
+        else{
+            this.setDireita(false);
+        }
     }
     
 }
