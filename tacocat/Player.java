@@ -23,14 +23,16 @@ public class Player extends GameObject{
         
         try {
 
-            this.imageParado = ImageIO.read(new File(file.getAbsoluteFile()+"\\src\\main\\java\\tacocat\\Sprites\\gatoBatendo.png"));
+            this.imageParado = ImageIO.read(new File(file.getAbsoluteFile()+"\\src\\main\\java\\tacocat\\Sprites\\gatoParado.png"));
 
         } catch (IOException ex) {
             Logger.getLogger(Player.class.getName()).log(Level.SEVERE, null, ex);
         }
         try {
 
-            this.imageBatendo = ImageIO.read(new File(file.getAbsoluteFile()+"\\src\\main\\java\\tacocat\\Sprites\\gatoBatendo.png"));
+
+            this.imageBatendo = ImageIO.read(new File(file.getAbsoluteFile()+"\\src\\main\\java\\tacocat\\Sprites\\gatoParado.png"));
+
 
         } catch (IOException ex) {
             Logger.getLogger(Player.class.getName()).log(Level.SEVERE, null, ex);
@@ -53,9 +55,8 @@ public class Player extends GameObject{
     }
 
     @Override
-    public void morrer() {    }
-
-    @Override
     public void frenesi() {    }
+    
+    
     
 }

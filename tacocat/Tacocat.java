@@ -28,8 +28,10 @@ public class Tacocat extends GameObject {
         File file = new File("");
         
         try {
-            this.tacocat = ImageIO.read(new File(file.getAbsoluteFile()+"\\src\\main\\java\\tacocat\\Sprites\\tacocat.png"));
 
+
+            this.tacocat = ImageIO.read(new File(file.getAbsoluteFile()+"\\src\\main\\java\\tacocat\\Sprites\\tacocat.png"));
+          
         } catch (IOException ex) {
             Logger.getLogger(Player.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -40,10 +42,6 @@ public class Tacocat extends GameObject {
     public void render(Graphics g) {
 
         g.drawImage(tacocat, this.getX()-17, this.getY()-15, null);
-        g.setColor(c);
-        
-
-        g.fillRect(this.getX(), this.getY(), 30, 30);
         
     }
     
@@ -61,15 +59,19 @@ public class Tacocat extends GameObject {
         
     }
 
-    @Override
-    public void morrer() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 
     @Override
     public void frenesi() {
+       this.setX(this.getX() + this.getVelx());
+        this.setY(this.getY() + this.getVely());
         
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        if(this.getX() <= limiteEsquerda || this.getX() >= (limiteDireita)){
+            this.setVelx(this.getVelx()*-1);
+        }
+        if(this.getY() <= 0 || this.getY() >= (Jogo.H)/2){
+            this.setVely(this.getVely()*-1);
+        }
     }
+    
 
 }
