@@ -28,6 +28,7 @@ public class Jogo extends Canvas implements Runnable{
     public enum ESTADO{
         Jogo,
         Help,
+        GameOver,
         Menu
     };
     
@@ -36,12 +37,12 @@ public class Jogo extends Canvas implements Runnable{
     //Construtor
     public Jogo(){
         ajudante = new Ajudante();
-        menu = new Menu(this);
+        menu = new Menu(this, ajudante);
         r = new Random();
         this.addKeyListener(new Teclado(ajudante));
         this.addMouseListener(new Mouse(ajudante, this));
         Janela j = new Janela(W, H, "TacoCat", this);
-        hud = new HUD();
+        hud = new HUD(this);
         cria = new CriarInimigos(ajudante,hud);
         explosao = new ExplosaoDosInimigos(ajudante, hud);
         
@@ -123,7 +124,7 @@ public class Jogo extends Canvas implements Runnable{
         if(estadoJogo == ESTADO.Jogo){
             hud.render(g);
         }
-        else if(estadoJogo == ESTADO.Menu || estadoJogo == ESTADO.Help){
+        else if(estadoJogo == ESTADO.Menu || estadoJogo == ESTADO.Help || estadoJogo == ESTADO.GameOver){
             menu.render(g);
         }
         
