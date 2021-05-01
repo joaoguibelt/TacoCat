@@ -118,7 +118,7 @@ public abstract class GameObject {
     }
     
     public abstract void frenesi();
-
+    
 
     public boolean isDireita() {
         return direita;
