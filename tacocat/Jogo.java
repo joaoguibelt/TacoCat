@@ -5,12 +5,9 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
 import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.imageio.ImageIO;
 
 
 
@@ -125,7 +122,7 @@ public class Jogo extends Canvas implements Runnable{
         
         Graphics g = bs.getDrawGraphics();
         
-        g.setColor(Color.orange);
+        g.setColor(Color.gray);
         g.fillRect(0, 0, W, H);
         
         ajudante.render(g);
