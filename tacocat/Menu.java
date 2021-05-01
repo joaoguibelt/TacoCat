@@ -9,9 +9,11 @@ import tacocat.Jogo.ESTADO;
 public class Menu {
     
     private Jogo jogo;
+    private Ajudante ajudante;
     
-    public Menu(Jogo jogo){
+    public Menu(Jogo jogo, Ajudante ajudante){
         this.jogo = jogo;
+        this.ajudante = ajudante;
     }
     
     
@@ -24,7 +26,7 @@ public class Menu {
         Font fnt = new Font("arial", 1, 50);
         Font fnt2 = new Font("arial", 1, 40);
         Font fnt3 = new Font("arial", 1, 20);
-        
+        //Imagens do menu
         if(jogo.estadoJogo == ESTADO.Menu){
             g.setFont(fnt);
             g.setColor(Color.black);
@@ -47,6 +49,7 @@ public class Menu {
             g.setColor(Color.black);
             g.drawRect(115, 450, 250, 64);
         }
+        //Imagens no help
         else if(jogo.estadoJogo == ESTADO.Help){            
             g.setFont(fnt2);
             g.setColor(Color.black);
@@ -58,6 +61,22 @@ public class Menu {
             g.drawString("para o outro. Para acertar os inimigos use o ", 10,115);
             g.drawString("mouse. O personagem precisa estar do mesmo ", 10,135);
             g.drawString("lado da tela do que o inimigo para acertá-lo. ", 10,155);
+        }
+        //Imagens do gameover e limpar a string de objetos
+        else if(jogo.estadoJogo == ESTADO.GameOver){           
+            for(int i = 0; i < ajudante.objetos.size(); i++){
+                ajudante.removerObjeto(ajudante.objetos.get(i));
+                i--;
+            }
+            
+            g.setFont(fnt2);
+            g.setColor(Color.black);
+            g.drawString("Voltar", 180, 495);
+            g.drawRect(115, 450, 250, 64);
+            
+            
+            g.setFont(fnt);
+            g.drawString("Game Over", 105, 90);
         }
     }
 }
