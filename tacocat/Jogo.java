@@ -4,9 +4,13 @@ import java.awt.Canvas;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.imageio.ImageIO;
 
 
 
@@ -30,11 +34,14 @@ public class Jogo extends Canvas implements Runnable{
         Help,
         Menu
     };
-    
+    BufferedImage fundo;
     public ESTADO estadoJogo = ESTADO.Menu;
     
     //Construtor
     public Jogo(){
+        
+       
+        
         ajudante = new Ajudante();
         menu = new Menu(this);
         r = new Random();
@@ -43,7 +50,9 @@ public class Jogo extends Canvas implements Runnable{
         Janela j = new Janela(W, H, "TacoCat", this);
         hud = new HUD();
         cria = new CriarInimigos(ajudante,hud);
+
         explosao = new ExplosaoDosInimigos(ajudante, hud);
+
         
     }
     
@@ -141,4 +150,5 @@ public class Jogo extends Canvas implements Runnable{
            return var;
        }
     }
+    
 }
