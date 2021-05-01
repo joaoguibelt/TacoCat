@@ -1,6 +1,5 @@
 package tacocat;
 
-import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -12,13 +11,11 @@ import javax.imageio.ImageIO;
 
 public class Player extends GameObject{
  
-           
    BufferedImage imageParado;
    BufferedImage imageBatendo;
     
     Player(int x, int y){
-        super(x, y, ID.Player);
-      
+        super(x, y, ID.Player, true);
         File file = new File("");
         
         try {
@@ -51,12 +48,18 @@ public class Player extends GameObject{
     @Override
     public void render(Graphics g) {
         g.fillRect(this.getX(), this.getY(), 50, 100);
-        g.drawImage(imageParado, this.getX(), this.getY(), null);
-        
+        if(isParado() == true){
+            g.drawImage(imageParado, this.getX(), this.getY(), null);
+        }
+        else if(isParado() == false){
+            g.drawImage(imageBatendo, this.getX(), this.getY(), null);
+        }
     }
 
     @Override
     public void frenesi() {    }
+
+
     
     
     

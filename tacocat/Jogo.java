@@ -5,12 +5,9 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
 import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.imageio.ImageIO;
 
 
 
@@ -32,6 +29,7 @@ public class Jogo extends Canvas implements Runnable{
     public enum ESTADO{
         Jogo,
         Help,
+        GameOver,
         Menu
     };
     BufferedImage fundo;
@@ -43,12 +41,12 @@ public class Jogo extends Canvas implements Runnable{
        
         
         ajudante = new Ajudante();
-        menu = new Menu(this);
+        menu = new Menu(this, ajudante);
         r = new Random();
         this.addKeyListener(new Teclado(ajudante));
         this.addMouseListener(new Mouse(ajudante, this));
         Janela j = new Janela(W, H, "TacoCat", this);
-        hud = new HUD();
+        hud = new HUD(this);
         cria = new CriarInimigos(ajudante,hud);
 
         explosao = new ExplosaoDosInimigos(ajudante, hud);
@@ -124,7 +122,7 @@ public class Jogo extends Canvas implements Runnable{
         
         Graphics g = bs.getDrawGraphics();
         
-        g.setColor(Color.orange);
+        g.setColor(Color.gray);
         g.fillRect(0, 0, W, H);
         
         ajudante.render(g);
@@ -132,7 +130,7 @@ public class Jogo extends Canvas implements Runnable{
         if(estadoJogo == ESTADO.Jogo){
             hud.render(g);
         }
-        else if(estadoJogo == ESTADO.Menu || estadoJogo == ESTADO.Help){
+        else if(estadoJogo == ESTADO.Menu || estadoJogo == ESTADO.Help || estadoJogo == ESTADO.GameOver){
             menu.render(g);
         }
         
