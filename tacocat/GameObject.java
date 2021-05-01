@@ -21,11 +21,14 @@ public abstract class GameObject {
     private boolean direita;
     //timer para os inimigos morrerem 
     private int timer;
-    GameObject(int x, int y, ID id){
+    //Estado do player
+    private boolean parado;  
+    GameObject(int x, int y, ID id, boolean parado){
         this.x = x;
         this.y = y;
         this.id = id;
         this.direita = false;
+        this.parado = parado;
     }
     // construtor para os inimigos
     GameObject(int x, int y, ID id, int velx, int vely, int width, int height, int vida, boolean direita){
@@ -137,6 +140,16 @@ public abstract class GameObject {
 
     public void setTimer(int timer) {
         this.timer = timer;
+    }
+
+
+    public boolean isParado() {
+        return parado;
+    }
+
+
+    public void setParado(boolean parado) {
+        this.parado = parado;
     }
     
 }
