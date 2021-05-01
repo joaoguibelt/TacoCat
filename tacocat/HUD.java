@@ -52,11 +52,12 @@ public class HUD {
     public void render(Graphics g){
         //Barra de vida
         g.setColor(Color.gray);
-        g.fillRect(0, 0, 16, 150);
+        g.fillRect(170, 550, 150, 16);
         g.setColor(Color.green);
-        g.fillRect(0, 0, 16, getHp());
+
+        g.fillRect(170, 550, hp, 16);
         g.setColor(Color.white);
-        g.drawRect(0, 0, 16, 150);
+        g.drawRect(170, 550, 150, 16);
         
         g.setColor(Color.black);
         g.drawString("Pontução: "+ pontuacao, 200, 20);

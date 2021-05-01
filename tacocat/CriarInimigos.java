@@ -34,7 +34,7 @@ public class CriarInimigos {
         
             if (pontosTemp2 >= 200){
                 ajudante.addObjeto(new Tacocat(r.nextInt(230), r.nextInt(Jogo.H/2), -1, 1, 0, 230, 30, 30, false));
-                ajudante.addObjeto(new Tacocat(r.nextInt(250)+245,r.nextInt(Jogo.H/2), -1, 1, 245, Jogo.W-10, 30, 30, true));    
+                ajudante.addObjeto(new Tacocat(r.nextInt(250)+195,r.nextInt(Jogo.H/2), -1, 1, 245, Jogo.W-30, 30, 30, true));    
                 hud.setLevel(hud.getLevel() + 1);
                 pontosTemp2 = 0;   
             }    
@@ -46,13 +46,13 @@ public class CriarInimigos {
             
             if (pontosTemp1 >= 500){
             pontosTemp1 = 0;
-            ajudante.addObjeto(new Purrito(r.nextInt(250) + 245,r.nextInt(Jogo.H/2), -3, 3, 50, 50, true));
+            ajudante.addObjeto(new Purrito(r.nextInt(195) + 250,r.nextInt(Jogo.H/2), -3, 3, 50, 50, true));
             
             } 
 
             if (pontosTemp2 >= 200){
                 ajudante.addObjeto(new Tacocat(r.nextInt(230), r.nextInt(Jogo.H/2), -2, 2, 0, 230, 30, 30, false));
-                ajudante.addObjeto(new Tacocat(r.nextInt(250)+245,r.nextInt(Jogo.H/2), -2, 2, 245, Jogo.W-10, 30, 30, true));    
+                ajudante.addObjeto(new Tacocat(r.nextInt(195)+250,r.nextInt(Jogo.H/2), -2, 2, 245, Jogo.W-33, 30, 30, true));    
                 hud.setLevel(hud.getLevel() + 1);
                 pontosTemp2 = 0;   
             }    
@@ -62,13 +62,13 @@ public class CriarInimigos {
         if (hud.getLevel()>= 10){
             if (pontosTemp1 >= 500){
             pontosTemp1 = 0;
-            ajudante.addObjeto(new Purrito(r.nextInt(Jogo.W),r.nextInt(Jogo.H/2), -4, 4, 50, 50,false));
+            ajudante.addObjeto(new Purrito(r.nextInt(230),r.nextInt(Jogo.H/2), -4, 4, 50, 50,false));
             
             } 
 
             if (pontosTemp2 >= 200){
                 ajudante.addObjeto(new Tacocat(r.nextInt(230), r.nextInt(Jogo.H/2), -3, 3, 0, 230, 30, 30,false));
-                ajudante.addObjeto(new Tacocat(r.nextInt(250)+245,r.nextInt(Jogo.H/2), -3, 3, 245, Jogo.W-10, 30, 30,true));    
+                ajudante.addObjeto(new Tacocat(r.nextInt(195)+250,r.nextInt(Jogo.H/2), -3, 3, 245, Jogo.W-33, 30, 30,true));    
                 hud.setLevel(hud.getLevel() + 1);
                 pontosTemp2 = 0;   
             }
