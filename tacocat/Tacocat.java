@@ -28,8 +28,9 @@ public class Tacocat extends GameObject {
         File file = new File("");
         
         try {
-            this.tacocat = ImageIO.read(new File(file.getAbsoluteFile()+"\\src\\main\\java\\tacocat\\Sprites\\tacocat.png"));
 
+            this.tacocat = ImageIO.read(new File(file.getAbsoluteFile()+"\\src\\tacocat\\Sprites\\tacocat.png"));
+          
         } catch (IOException ex) {
             Logger.getLogger(Player.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -40,10 +41,6 @@ public class Tacocat extends GameObject {
     public void render(Graphics g) {
 
         g.drawImage(tacocat, this.getX()-17, this.getY()-15, null);
-        g.setColor(c);
-        
-
-        g.fillRect(this.getX(), this.getY(), 30, 30);
         
     }
     
