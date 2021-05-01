@@ -21,6 +21,10 @@ public class Mouse extends MouseAdapter{
         int ny = e.getY();
         GameObject objetoTemporario = null;
         //Mouse dentro do jogo
+        
+        
+        
+        
         if(jogo.estadoJogo == ESTADO.Jogo){
             //pegando o player
             for(int i = 0; i < ajudante.objetos.size(); i++){
@@ -28,6 +32,8 @@ public class Mouse extends MouseAdapter{
                     objetoTemporario = ajudante.objetos.get(i);
                 }
             }
+            //animação de bater
+            objetoTemporario.setParado(false);
             //batendo nos inimigos
             for(int i = 0; i < ajudante.objetos.size(); i++){
                 if(ajudante.objetos.get(i).getId() != ID.Player){
@@ -68,12 +74,23 @@ public class Mouse extends MouseAdapter{
             if(mouseOver(nx, ny, 115, 450, 250, 64)){
                 jogo.estadoJogo = ESTADO.Menu;
             }
-        }            
+        }
+        else if(jogo.estadoJogo == ESTADO.GameOver){
+            if(mouseOver(nx, ny, 115, 450, 250, 64)){
+                jogo.estadoJogo = ESTADO.Menu;
+            }
+        }
     }
     
     @Override
     public void mouseReleased(MouseEvent e){
-        
+        if(jogo.estadoJogo == ESTADO.Jogo){
+            for(int i = 0; i < ajudante.objetos.size(); i++){
+                if(ajudante.objetos.get(i).getId() == ID.Player){
+                    ajudante.objetos.get(i).setParado(true);
+                }
+            }
+        }
     }
     
     private boolean mouseOver(int nx, int ny, int x, int y, int width, int height){

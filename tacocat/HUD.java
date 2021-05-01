@@ -3,9 +3,18 @@ package tacocat;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Font;
+import tacocat.Jogo.ESTADO;
 
 //HUD do jogo
 public class HUD {
+    
+    Jogo jogo;
+    
+    
+    public HUD(Jogo jogo){
+        this.jogo = jogo;
+    }
+    
     
     private static int hp = 150;
     
@@ -46,7 +55,7 @@ public class HUD {
          pontuacao ++;
          
          if(hp <= 0){
-             System.exit(1);
+             jogo.estadoJogo = ESTADO.GameOver;
          }
     }
 
@@ -99,9 +108,7 @@ public class HUD {
         }
         
     }
-
-
-    public static int getHp() {
+  public static int getHp() {
         return hp;
     }
 
@@ -111,14 +118,5 @@ public class HUD {
     }
 
 
-    public static int getHp() {
-        return hp;
-    }
-
-
-    public static void setHp(int aHp) {
-        hp = aHp;
-    }
-    
-    
 }
+  

@@ -47,14 +47,14 @@ public class CriarInimigos {
         
             if (pontosTemp2 >= 200){
                 ajudante.addObjeto(new Tacocat(r.nextInt(230), r.nextInt(Jogo.H/2), -1, 1, 0, 230, 30, 30, false));
-                ajudante.addObjeto(new Tacocat(r.nextInt(250)+195,r.nextInt(Jogo.H/2), -1, 1, 245, Jogo.W-30, 30, 30, true));    
+                ajudante.addObjeto(new Tacocat(r.nextInt(195)+250,r.nextInt(Jogo.H/2), -1, 1, 245, Jogo.W-30, 30, 30, true));    
                 hud.setLevel(hud.getLevel() + 1);
                 pontosTemp2 = 0;   
             }
             
             if (pontosTemp3 == 1){
                 ajudante.addObjeto(new Tacocat(r.nextInt(230), r.nextInt(Jogo.H/2), -1, 1, 0, 230, 30, 30, false));
-                ajudante.addObjeto(new Tacocat(r.nextInt(250)+195,r.nextInt(Jogo.H/2), -1, 1, 245, Jogo.W-30, 30, 30, true));        
+                ajudante.addObjeto(new Tacocat(r.nextInt(195)+250,r.nextInt(Jogo.H/2), -1, 1, 245, Jogo.W-30, 30, 30, true));        
             }
             
         }
