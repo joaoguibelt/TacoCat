@@ -99,9 +99,7 @@ public class HUD {
         }
         
     }
-
-
-    public static int getHp() {
+  public static int getHp() {
         return hp;
     }
 
@@ -111,14 +109,5 @@ public class HUD {
     }
 
 
-    public static int getHp() {
-        return hp;
-    }
-
-
-    public static void setHp(int aHp) {
-        hp = aHp;
-    }
-    
-    
 }
+  
