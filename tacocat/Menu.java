@@ -16,7 +16,7 @@ import tacocat.Jogo.ESTADO;
 
 
 public class Menu {
-    
+  
     private Jogo jogo;
     private Ajudante ajudante;
     private Janela janela;
@@ -25,40 +25,11 @@ public class Menu {
     private int top3;
     private BufferedImage logo;
     private String pontuacao;
-    
+    private BufferedImage quitImagem;
     public Menu(Jogo jogo, Ajudante ajudante, Janela janela){
         this.jogo = jogo;
         this.ajudante = ajudante;
         this.janela = janela;
-        File file = new File("");
-        top1 = 0;
-        top2 = 0;
-        top3 = 0;
-
-       
-        
-        
-        try{
-            FileInputStream arquivo = new FileInputStream(file.getAbsoluteFile()+"\\src\\tacocat\\Files\\Score.txt");
-            InputStreamReader input = new InputStreamReader(arquivo);
-            BufferedReader  br = new BufferedReader(input);
-            String scoreAtual;
-            while( (scoreAtual = br.readLine()) != null){
-                if(Integer.parseInt(scoreAtual) > top1){
-                    top2 = top1;
-                    top1 = Integer.parseInt(scoreAtual);
-
-                }else if(Integer.parseInt(scoreAtual) > top2){
-                    top3 = top2; 
-                    top2 = Integer.parseInt(scoreAtual);
-                }else if(Integer.parseInt(scoreAtual) > top3){
-                    top3 = Integer.parseInt(scoreAtual);
-                }
-            }
-            arquivo.close();
-
-        }catch(IOException e){
-        }
         
     }
     
@@ -83,7 +54,9 @@ public class Menu {
         if(jogo.estadoJogo == ESTADO.Menu){
 
             File file = new File("");
+            
             try {
+                this.quitImagem = ImageIO.read(new File(file.getAbsoluteFile()+"\\src\\tacocat\\Sprites\\portaQuit.png"));
                 this.logo = ImageIO.read(new File(file.getAbsoluteFile()+"\\src\\tacocat\\Sprites\\TacoLogo3.png"));
             } catch (IOException ex) {
                 Logger.getLogger(Player.class.getName()).log(Level.SEVERE, null, ex);
@@ -103,11 +76,10 @@ public class Menu {
             g.setColor(Color.black);
             g.drawRect(115, 350, 250, 64);
             
-            g.setFont(fnt5);
-            g.drawString("Quit", 3, 550);
-            g.setColor(Color.black);
-            g.drawRect(0, 535, 25, 25);
             
+            g.drawImage(quitImagem, -10, 515,null);
+
+                      
             g.setFont(fnt6);
             g.drawString("Developed by Tacool", 320, 560);
             g.setColor(Color.black);
@@ -160,7 +132,36 @@ public class Menu {
             g.drawString("Game Over", 105, 90);
              
         }else if(jogo.estadoJogo == ESTADO.Score){
-            
+            File file = new File("");
+            top1 = 0;
+            top2 = 0;
+            top3 = 0;
+
+
+
+
+            try{
+                FileInputStream arquivo = new FileInputStream(file.getAbsoluteFile()+"\\src\\tacocat\\Files\\Score.txt");
+                InputStreamReader input = new InputStreamReader(arquivo);
+                BufferedReader  br = new BufferedReader(input);
+                String scoreAtual;
+                while( (scoreAtual = br.readLine()) != null){
+                    if(Integer.parseInt(scoreAtual) > top1){
+                        top2 = top1;
+                        top1 = Integer.parseInt(scoreAtual);
+
+                    }else if(Integer.parseInt(scoreAtual) > top2){
+                        top3 = top2; 
+                        top2 = Integer.parseInt(scoreAtual);
+                    }else if(Integer.parseInt(scoreAtual) > top3){
+                        top3 = Integer.parseInt(scoreAtual);
+                    }
+                }
+                arquivo.close();
+
+            }catch(IOException e){
+            }
+        
             g.setFont(fnt7);
             g.setColor(Color.black);
             g.drawString("MAIORES PONTUAÇÕES", 6, 55);
@@ -173,6 +174,12 @@ public class Menu {
             g.setColor(Color.black);
             g.drawString("Voltar", 180, 495);
             g.drawRect(115, 450, 250, 64);
+        }
+    }
+    
+    public void mostrarPontuacao(int score){
+        if(jogo.estadoJogo == ESTADO.GameOver){
+            pontuacao = Integer.toString(score);
         }
     }
     

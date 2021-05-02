@@ -64,7 +64,7 @@ public class Mouse extends MouseAdapter{
                 jogo.estadoJogo = ESTADO.Help;
             }
             //Botão de quit
-            else if(mouseOver(nx, ny, 135, 450, 250, 64)){
+            else if(mouseOver(nx, ny, 8, 525, 26, 40)){
                 System.exit(1);
             }
             //Score
