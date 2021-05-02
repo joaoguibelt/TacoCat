@@ -10,17 +10,19 @@ public class HUD {
     
     Jogo jogo;
     
-    
-    public HUD(Jogo jogo){
-        this.jogo = jogo;
-    }
-    
-    
     private static int hp = 150;
-    
+    private int greenValue = 255;
     private int pontuacao = 0;
     private int level = 0;
     private boolean contFrenesi = false;
+    private Menu menu;
+    
+    public HUD(Jogo jogo, Menu menu){
+        this.jogo = jogo;
+        this.menu = menu;
+    }
+    
+    
 
     public boolean getContFrenesi() {
         return contFrenesi;
@@ -57,10 +59,14 @@ public class HUD {
          if(hp <= 0){
              jogo.estadoJogo = ESTADO.GameOver;
              GravarScore score = new GravarScore(this.pontuacao);
+             menu.mostrarPontuacao(pontuacao);
              hp = 150;
              level = 0;
              pontuacao = 0;
          }
+         greenValue = hp * 2;
+         greenValue = Jogo.limiteResolucao(greenValue, 0, 255);
+         
     }
 
 
@@ -68,8 +74,7 @@ public class HUD {
         //Barra de vida
         g.setColor(Color.gray);
         g.fillRect(170, 550, 150, 16);
-        g.setColor(Color.green);
-
+        g.setColor(new Color(75, greenValue, 0));
         g.fillRect(170, 550, hp, 16);
         g.setColor(Color.white);
         g.drawRect(170, 550, 150, 16);

@@ -1,7 +1,6 @@
 package tacocat;
 
 import java.awt.Canvas;
-import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
@@ -19,7 +18,6 @@ public class Jogo extends Canvas implements Runnable{
    //Altura e Largura da janela 
     public static final int W = 490;
     public static final int H = 600;
-    
     private Thread thread;
     private boolean rodando = false;
     private Ajudante ajudante;
@@ -59,7 +57,7 @@ public class Jogo extends Canvas implements Runnable{
         this.addKeyListener(new Teclado(ajudante));
         this.addMouseListener(new Mouse(ajudante, this));
         
-        hud = new HUD(this);
+        hud = new HUD(this, menu);
         cria = new CriarInimigos(ajudante,hud);
 
         explosao = new ExplosaoDosInimigos(ajudante, hud);
