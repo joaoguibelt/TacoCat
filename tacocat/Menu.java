@@ -40,20 +40,18 @@ public class Menu {
         //Imagens do menu
 
         if(jogo.estadoJogo == ESTADO.Menu){
-            
+
             File file = new File("");
             try {
-                this.logo = ImageIO.read(new File(file.getAbsoluteFile()+"\\src\\tacocat\\Sprites\\TacoLogo2.png.png"));
+                this.logo = ImageIO.read(new File(file.getAbsoluteFile()+"\\src\\main\\java\\tacocat\\Sprites\\TacoLogo3.png"));
             } catch (IOException ex) {
                 Logger.getLogger(Player.class.getName()).log(Level.SEVERE, null, ex);
             }
-            g.drawImage(logo, 125, 100, null);
-             
-             
+            g.drawImage(logo, 170, 25, null);          
              
             g.setFont(fnt2);
-            g.drawString("Play", 200, 195);
             g.setColor(Color.black);
+            g.drawString("Play", 200, 195);
             g.drawRect(115, 150, 250, 64);
         
             g.drawString("Score", 185, 295);
