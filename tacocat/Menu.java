@@ -16,7 +16,7 @@ import tacocat.Jogo.ESTADO;
 
 
 public class Menu {
-    
+  
     private Jogo jogo;
     private Ajudante ajudante;
     private Janela janela;
@@ -76,11 +76,10 @@ public class Menu {
             g.setColor(Color.black);
             g.drawRect(115, 350, 250, 64);
             
-            g.setFont(fnt5);
-   
-            g.setColor(Color.black);
-            g.drawImage(quitImagem, -10, 515,null);
             
+            g.drawImage(quitImagem, -10, 515,null);
+
+                      
             g.setFont(fnt6);
             g.drawString("Developed by Tacool", 320, 560);
             g.setColor(Color.black);
@@ -169,6 +168,18 @@ public class Menu {
             g.drawString(Integer.toString(top1), 180, 200);
             g.drawString(Integer.toString(top2), 180, 250);
             g.drawString(Integer.toString(top3), 180, 300);
+            
+            
+            g.setFont(fnt2);
+            g.setColor(Color.black);
+            g.drawString("Voltar", 180, 495);
+            g.drawRect(115, 450, 250, 64);
+        }
+    }
+    
+    public void mostrarPontuacao(int score){
+        if(jogo.estadoJogo == ESTADO.GameOver){
+            pontuacao = Integer.toString(score);
         }
     }
     
