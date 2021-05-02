@@ -21,7 +21,7 @@ public class Teclado extends KeyAdapter{
             GameObject objetoTemporario = ajudante.objetos.get(i);
             if(objetoTemporario.getId() == ID.Player){
                 if(key == KeyEvent.VK_D){
-                    objetoTemporario.setX(480 - 94);
+                    objetoTemporario.setX(480 - 106);
                     ajudante.objetos.get(i).setDireita(true);
                 }
                 else if(key == KeyEvent.VK_A){

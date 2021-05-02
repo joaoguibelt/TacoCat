@@ -40,6 +40,7 @@ public class Menu {
         //Imagens do menu
 
         if(jogo.estadoJogo == ESTADO.Menu){
+
         
             File file = new File("");
             try {
@@ -47,9 +48,7 @@ public class Menu {
             } catch (IOException ex) {
                 Logger.getLogger(Player.class.getName()).log(Level.SEVERE, null, ex);
             }
-            g.drawImage(logo, 170, 25, null);
-             
-             
+            g.drawImage(logo, 170, 25, null);          
              
             g.setFont(fnt2);
             g.setColor(Color.black);
