@@ -5,9 +5,12 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.imageio.ImageIO;
 
 
 
@@ -30,22 +33,32 @@ public class Jogo extends Canvas implements Runnable{
         Jogo,
         Help,
         GameOver,
-        Menu
+        Menu,
+        Score
     };
     BufferedImage fundo;
     public ESTADO estadoJogo = ESTADO.Menu;
     
     //Construtor
     public Jogo(){
+         File file = new File("");
+        try {
+
+            this.fundo = ImageIO.read(new File(file.getAbsoluteFile()+"\\src\\tacocat\\Sprites\\tacocatFundo.png"));
+
+
+        } catch (IOException ex) {
+            Logger.getLogger(Player.class.getName()).log(Level.SEVERE, null, ex);
         
+        }
        
-        
+        Janela j = new Janela(W, H, "TacoCat", this);
         ajudante = new Ajudante();
-        menu = new Menu(this, ajudante);
+        menu = new Menu(this, ajudante,j);
         r = new Random();
         this.addKeyListener(new Teclado(ajudante));
         this.addMouseListener(new Mouse(ajudante, this));
-        Janela j = new Janela(W, H, "TacoCat", this);
+        
         hud = new HUD(this);
         cria = new CriarInimigos(ajudante,hud);
 
@@ -114,6 +127,7 @@ public class Jogo extends Canvas implements Runnable{
     }
     //O que renderiza as imagens
     private void render() {
+        
         BufferStrategy bs = this.getBufferStrategy();
         if(bs == null){
             this.createBufferStrategy(3);
@@ -121,16 +135,15 @@ public class Jogo extends Canvas implements Runnable{
         }
         
         Graphics g = bs.getDrawGraphics();
-        
-        g.setColor(Color.gray);
-        g.fillRect(0, 0, W, H);
-        
-        ajudante.render(g);
-        
+        g.drawImage(this.fundo, 0, 0, null);
+
+                ajudante.render(g);
+
         if(estadoJogo == ESTADO.Jogo){
+            
             hud.render(g);
         }
-        else if(estadoJogo == ESTADO.Menu || estadoJogo == ESTADO.Help || estadoJogo == ESTADO.GameOver){
+        else if(estadoJogo == ESTADO.Menu || estadoJogo == ESTADO.Help || estadoJogo == ESTADO.GameOver || estadoJogo == ESTADO.Score){
             menu.render(g);
         }
         

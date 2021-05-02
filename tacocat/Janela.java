@@ -4,11 +4,11 @@ import java.awt.Canvas;
 import javax.swing.JFrame;
 
 public class Janela extends Canvas{
-    
+       JFrame frame;
+
     //Esse daqui são as configurações da janela
     public Janela(int width, int height, String nome, Jogo jogo){
-        JFrame frame = new JFrame(nome);
-
+        frame = new JFrame(nome);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 

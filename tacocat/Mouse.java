@@ -67,6 +67,10 @@ public class Mouse extends MouseAdapter{
             else if(mouseOver(nx, ny, 135, 450, 250, 64)){
                 System.exit(1);
             }
+            //Score
+            else if(mouseOver(nx, ny, 115, 250, 250, 64)){
+                jogo.estadoJogo = ESTADO.Score;
+            }
         }
         //Mouse dentro do help
         else if(jogo.estadoJogo == ESTADO.Help){
