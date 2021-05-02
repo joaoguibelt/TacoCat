@@ -3,6 +3,12 @@ package tacocat;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.imageio.ImageIO;
 import tacocat.Jogo.ESTADO;
 
 
@@ -10,6 +16,7 @@ public class Menu {
     
     private Jogo jogo;
     private Ajudante ajudante;
+    private BufferedImage logo;
     
     public Menu(Jogo jogo, Ajudante ajudante){
         this.jogo = jogo;
@@ -33,13 +40,20 @@ public class Menu {
         //Imagens do menu
 
         if(jogo.estadoJogo == ESTADO.Menu){
-            g.setFont(fnt5);
-            g.setColor(Color.black);
-            g.drawString("Tacocat", 125, 100);
         
+            File file = new File("");
+            try {
+                this.logo = ImageIO.read(new File(file.getAbsoluteFile()+"\\src\\main\\java\\tacocat\\Sprites\\TacoLogo3.png"));
+            } catch (IOException ex) {
+                Logger.getLogger(Player.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            g.drawImage(logo, 170, 25, null);
+             
+             
+             
             g.setFont(fnt2);
-            g.drawString("Play", 200, 195);
             g.setColor(Color.black);
+            g.drawString("Play", 200, 195);
             g.drawRect(115, 150, 250, 64);
         
             g.drawString("Score", 185, 295);
@@ -55,7 +69,7 @@ public class Menu {
             g.drawRect(115, 450, 250, 64);
             
             g.setFont(fnt6);
-            g.drawString("Developed by Tacool", 330, 568);
+            g.drawString("Developed by Tacool", 320, 560);
             g.setColor(Color.black);
             
             
