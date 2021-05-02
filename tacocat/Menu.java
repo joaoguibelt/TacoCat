@@ -3,6 +3,21 @@ package tacocat;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
+import java.awt.TextField;
+import java.awt.image.BufferedImage;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.imageio.ImageIO;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
 import tacocat.Jogo.ESTADO;
 
 
@@ -10,10 +25,45 @@ public class Menu {
     
     private Jogo jogo;
     private Ajudante ajudante;
+    private Janela janela;
+    private int top1;
+    private int top2;
+    private int top3;
     
-    public Menu(Jogo jogo, Ajudante ajudante){
+    public Menu(Jogo jogo, Ajudante ajudante, Janela janela){
         this.jogo = jogo;
         this.ajudante = ajudante;
+        this.janela = janela;
+        File file = new File("");
+        top1 = 0;
+        top2 = 0;
+        top3 = 0;
+
+       
+        
+        
+        try{
+            FileInputStream arquivo = new FileInputStream(file.getAbsoluteFile()+"\\src\\tacocat\\Files\\Score.txt");
+            InputStreamReader input = new InputStreamReader(arquivo);
+            BufferedReader  br = new BufferedReader(input);
+            String scoreAtual;
+            while( (scoreAtual = br.readLine()) != null){
+                if(Integer.parseInt(scoreAtual) > top1){
+                    top2 = top1;
+                    top1 = Integer.parseInt(scoreAtual);
+
+                }else if(Integer.parseInt(scoreAtual) > top2){
+                    top3 = top2; 
+                    top2 = Integer.parseInt(scoreAtual);
+                }else if(Integer.parseInt(scoreAtual) > top3){
+                    top3 = Integer.parseInt(scoreAtual);
+                }
+            }
+            arquivo.close();
+
+        }catch(IOException e){
+        }
+        
     }
     
     
@@ -23,12 +73,14 @@ public class Menu {
     
     
     public void render(Graphics g){
+
         Font fnt = new Font("arial", 1, 50);
         Font fnt2 = new Font("arial", 1, 40);
         Font fnt3 = new Font("arial", 1, 20);
         Font fnt4 = new Font("Segoe UI Black", 1, 40);
         Font fnt5 = new Font("Segoe UI Black", 2, 55);
         Font fnt6 = new Font("Segoe UI Black", 2, 15);
+        Font fnt7 = new Font("Segoe UI Black", 2, 40);
 
         //Imagens do menu
 
@@ -55,7 +107,7 @@ public class Menu {
             g.drawRect(115, 450, 250, 64);
             
             g.setFont(fnt6);
-            g.drawString("Developed by Tacool", 330, 568);
+            g.drawString("Developed by Tacool", 320, 560);
             g.setColor(Color.black);
             
             
@@ -80,6 +132,7 @@ public class Menu {
             g.drawString("mesmo sumirá e causará dano a sua vida ", 10,270);
             g.setFont(fnt4);
             g.drawString("BOM JOGO!", 117,400);
+           
         }
         //Imagens do gameover e limpar a string de objetos
         else if(jogo.estadoJogo == ESTADO.GameOver){           
@@ -92,10 +145,21 @@ public class Menu {
             g.setColor(Color.black);
             g.drawString("Voltar", 180, 495);
             g.drawRect(115, 450, 250, 64);
+           
             
             
             g.setFont(fnt);
             g.drawString("Game Over", 105, 90);
+             
+        }else if(jogo.estadoJogo == ESTADO.Score){
+            
+            g.setFont(fnt7);
+            g.setColor(Color.black);
+            g.drawString("MAIORES PONTUAÇÕES", 6, 55);
+            g.drawString(Integer.toString(top1), 180, 200);
+            g.drawString(Integer.toString(top2), 180, 250);
+            g.drawString(Integer.toString(top3), 180, 300);
         }
     }
+    
 }
