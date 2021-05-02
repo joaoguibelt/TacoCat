@@ -59,7 +59,7 @@ public class Jogo extends Canvas implements Runnable{
         this.addKeyListener(new Teclado(ajudante));
         this.addMouseListener(new Mouse(ajudante, this));
         
-        hud = new HUD(this);
+        hud = new HUD(this, menu);
         cria = new CriarInimigos(ajudante,hud);
 
         explosao = new ExplosaoDosInimigos(ajudante, hud);
