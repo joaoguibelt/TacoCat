@@ -167,6 +167,12 @@ public class Menu {
             g.drawString(Integer.toString(top1), 180, 200);
             g.drawString(Integer.toString(top2), 180, 250);
             g.drawString(Integer.toString(top3), 180, 300);
+            
+            
+            g.setFont(fnt2);
+            g.setColor(Color.black);
+            g.drawString("Voltar", 180, 495);
+            g.drawRect(115, 450, 250, 64);
         }
     }
     
