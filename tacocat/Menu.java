@@ -183,10 +183,5 @@ public class Menu {
         }
     }
     
-    public void mostrarPontuacao(int score){
-        if(jogo.estadoJogo == ESTADO.GameOver){
-            pontuacao = Integer.toString(score);
-        }
-    }
-    
+        
 }
