@@ -41,7 +41,6 @@ public class Menu {
 
         if(jogo.estadoJogo == ESTADO.Menu){
 
-        
             File file = new File("");
             try {
                 this.logo = ImageIO.read(new File(file.getAbsoluteFile()+"\\src\\main\\java\\tacocat\\Sprites\\TacoLogo3.png"));
