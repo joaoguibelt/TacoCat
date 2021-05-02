@@ -57,7 +57,9 @@ public class HUD {
          if(hp <= 0){
              jogo.estadoJogo = ESTADO.GameOver;
              GravarScore score = new GravarScore(this.pontuacao);
-             
+             hp = 150;
+             level = 0;
+             pontuacao = 0;
          }
     }
 

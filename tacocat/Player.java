@@ -50,6 +50,7 @@ public class Player extends GameObject{
 
     @Override
     public void render(Graphics g) {
+
         if(this.isDireita() == false){
             if(isParado() == true){
                 g.drawImage(imageParado, this.getX(), this.getY(), null);
