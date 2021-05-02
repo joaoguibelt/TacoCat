@@ -56,6 +56,9 @@ public class HUD {
          
          if(hp <= 0){
              jogo.estadoJogo = ESTADO.GameOver;
+             hp = 150;
+             level = 0;
+             pontuacao = 0;
          }
     }
 

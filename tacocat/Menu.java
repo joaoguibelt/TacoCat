@@ -40,10 +40,6 @@ public class Menu {
         //Imagens do menu
 
         if(jogo.estadoJogo == ESTADO.Menu){
-//            g.setFont(fnt5);
-//            g.setColor(Color.black);
-//            g.drawString("Tacocat", 125, 100);
-//            
             
             File file = new File("");
             try {
