@@ -28,7 +28,7 @@ public class Purrito extends GameObject{
     }
     @Override
     public void render(Graphics g) {
-
+        
         g.drawImage(purrito, this.getX(), this.getY(), null);
         
     }

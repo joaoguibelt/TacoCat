@@ -56,6 +56,7 @@ public class HUD {
          
          if(hp <= 0){
              jogo.estadoJogo = ESTADO.GameOver;
+             GravarScore score = new GravarScore(this.pontuacao);
              hp = 150;
              level = 0;
              pontuacao = 0;
@@ -82,7 +83,7 @@ public class HUD {
         
         Font dificuldade = new Font("Segoe UI Black", 5, 18);
         g.setFont(dificuldade);
-        g.setColor(Color.MAGENTA);
+        g.setColor(Color.white);
         
         if((level >= 0) && (level < 5)){ 
             g.drawString("+ Easy +", 200, 65);
